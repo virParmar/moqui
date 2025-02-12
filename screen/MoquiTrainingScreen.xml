@@ -4,5 +4,10 @@
         require-authentication="false">
     <widgets>
         <label type="h1" text="Hello world!"/>
+
+        <subscreens default-item="FindMoquiTraining">
+            <subscreen name="FindMoquiTraining" menu-title="Find Training" location="screen/FindMoquiTraining.xml"/>
+        </subscreens>
+
     </widgets>
 </screen>

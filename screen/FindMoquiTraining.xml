@@ -1,0 +1,28 @@
+<screen xmlns="http://moqui.org/xsd/screen-2.1">
+    <widgets>
+        <label type="h1" text="This is search form"/>
+        <section>
+            <label>Find Moqui Training</label>
+            <form-list name="FindTrainingForm" list="trainingList">
+                <auto-fields-entity entity-name="moqui.MoquiTrainingEntity"/>
+            </form-list>
+        </section>
+        <section>
+            <form-single name="SearchForm" transition="searchTraining">
+                <auto-fields-entity entity-name="moqui.MoquiTrainingEntity" field-type="find"/>
+                <submit label="Search"/>
+            </form-single>
+        </section>
+    </widgets>
+
+    <actions>
+        <entity-find entity-name="moqui.MoquiTrainingEntity" list="trainingList"/>
+        <transition name="searchTraining">
+            <actions>
+                <entity-find entity-name="moqui.MoquiTrainingEntity" list="trainingList">
+                    <condition field="trainingName" from="parameters.trainingName"/>
+                </entity-find>
+            </actions>
+        </transition>
+    </actions>
+</screen>
