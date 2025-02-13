@@ -1,16 +1,8 @@
 <moqui-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/moqui-conf-3.xsd">
 
-    <!--    <webapp-list>-->
-    <!--        <webapp name="webroot">-->
-
-    <!--            <root-screen host=".*" path="training" location="component://moqui-training/screen/MoquiTrainingScreen.xml" />-->
-
-    <!--        </webapp>-->
-    <!--    </webapp-list>-->
-
     <screen-facade>
         <screen location="component://webroot/screen/webroot/apps.xml">
-            <subscreens-item name="training" menu-title="Moqui" menu-index="99"
+            <subscreens-item name="training" menu-title="Moqui"
                              location="component://moqui-training/screen/MoquiTrainingScreen.xml"/>
         </screen>
     </screen-facade>

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.1.xsd"
+        xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-3.xsd"
         require-authentication="false">
+
+    <subscreens default-item="FindMoquiTraining">
+        <subscreens-item name="FindMoquiTraining" location="component://moqui-training/screen/FindMoquiTraining.xml"/>
+    </subscreens>
+
     <widgets>
-        <label type="h1" text="Hello world!"/>
-
-        <subscreens default-item="FindMoquiTraining">
-            <subscreen name="FindMoquiTraining" menu-title="Find Training" location="screen/FindMoquiTraining.xml"/>
-        </subscreens>
-
+        <subscreens-panel id="Find" type="tab" />
     </widgets>
+
 </screen>

@@ -1,28 +1,43 @@
-<screen xmlns="http://moqui.org/xsd/screen-2.1">
-    <widgets>
-        <label type="h1" text="This is search form"/>
-        <section>
-            <label>Find Moqui Training</label>
-            <form-list name="FindTrainingForm" list="trainingList">
-                <auto-fields-entity entity-name="moqui.MoquiTrainingEntity"/>
-            </form-list>
-        </section>
-        <section>
-            <form-single name="SearchForm" transition="searchTraining">
-                <auto-fields-entity entity-name="moqui.MoquiTrainingEntity" field-type="find"/>
-                <submit label="Search"/>
-            </form-single>
-        </section>
-    </widgets>
+<?xml version="1.0" encoding="UTF-8"?>
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-3.xsd"
+        require-authentication="anonymous-all">
+
+
+    <transition name="createTraining">
+        <service-call name="create#training.MoquiTraining"/>
+        <default-response url="."/>
+    </transition>
 
     <actions>
-        <entity-find entity-name="moqui.MoquiTrainingEntity" list="trainingList"/>
-        <transition name="searchTraining">
-            <actions>
-                <entity-find entity-name="moqui.MoquiTrainingEntity" list="trainingList">
-                    <condition field="trainingName" from="parameters.trainingName"/>
-                </entity-find>
-            </actions>
-        </transition>
+        <entity-find entity-name="MoquiTrainingEntity" list="trainingList">
+            <search-form-inputs/>
+        </entity-find>
+
     </actions>
+
+    <widgets>
+        <label type="h2" text="Find Moqui Training"/>
+
+        <form-single name="SearchForm">
+               <auto-fields-entity entity-name="MoquiTrainingEntity" field-type="find" />
+                 <field name="submitButton" >
+                     <default-field title="search">
+                         <submit />
+                     </default-field>
+                 </field>
+        </form-single>
+
+        <form-list name="MoquiTrainingFormList" list="trainingList" >
+            <auto-fields-entity entity-name="MoquiTrainingEntity" field-type="display" />
+        </form-list>
+        <container-dialog id="createTrainingDialog" button-text="Create New Training">
+            <form-single name="CreateTrainingForm" transition="createTraining">
+                <auto-fields-entity entity-name="MoquiTrainingEntity" field-type="edit"/>
+
+            </form-single>
+        </container-dialog>
+    </widgets>
+
 </screen>
+
