@@ -3,9 +3,8 @@
         xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-3.xsd"
         require-authentication="anonymous-all">
 
-
     <transition name="createTraining">
-        <service-call name="create#training.MoquiTraining"/>
+        <service-call name="create#moqui.MoquiTrainingEntity"/>
         <default-response url="."/>
     </transition>
 
@@ -13,7 +12,6 @@
         <entity-find entity-name="MoquiTrainingEntity" list="trainingList">
             <search-form-inputs/>
         </entity-find>
-
     </actions>
 
     <widgets>
@@ -31,12 +29,19 @@
         <form-list name="MoquiTrainingFormList" list="trainingList" >
             <auto-fields-entity entity-name="MoquiTrainingEntity" field-type="display" />
         </form-list>
+
         <container-dialog id="createTrainingDialog" button-text="Create New Training">
             <form-single name="CreateTrainingForm" transition="createTraining">
                 <auto-fields-entity entity-name="MoquiTrainingEntity" field-type="edit"/>
-
+<!--                <auto-fields-entity entity-name="MoquiTrainingEntity" field-type="find" />-->
+                <field name="addButton" >
+                    <default-field title="Add Training">
+                        <submit />
+                    </default-field>
+                </field>
             </form-single>
         </container-dialog>
+
     </widgets>
 
 </screen>
