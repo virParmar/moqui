@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-3.xsd">
+
+    <service verb="create" noun="MoquiTrainingEntity"
+             type="script"
+             location="component://moqui-training/script/MoquiTrainingService.groovy"
+             authenticate="false">
+
+        <in-parameters>
+            <parameter name="trainingId" required="true"/>
+            <parameter name="trainingName" required="true"/>
+            <parameter name="trainingDate"/>
+            <parameter name="trainingPrice"/>
+            <parameter name="trainingDuration"/>
+        </in-parameters>
+
+        <out-parameters>
+            <parameter name="responseMessage"/>
+        </out-parameters>
+
+    </service>
+</services>

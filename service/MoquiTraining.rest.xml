@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource name="MoquiTrainingAPI" displayName="Moqui Training API"
+          description="API for managing Moqui Training" version="1.0"
+          require-authentication="false">
+
+    <method type="POST" path="/moqui-training/create">
+        <service service="training.create#MoquiTraining"/>
+    </method>
+
+</resource>
