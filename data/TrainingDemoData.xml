@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity-facade-xml>
-    <MoquiTrainingEntity trainingId="T001" trainingName="Java Training" trainingDate="2025-02-14"
+    <moqui.MoquiTrainingEntity trainingId="T001" trainingName="Java Training" trainingDate="2025-02-14"
                          trainingPrice="5000.00" trainingDuration="30"/>
-    <MoquiTrainingEntity trainingId="T002" trainingName="Moqui Framework Training" trainingDate="2025-02-15"
+    <moqui.MoquiTrainingEntity trainingId="T002" trainingName="Moqui Framework Training" trainingDate="2025-02-15"
                          trainingPrice="6000.00" trainingDuration="40"/>
 </entity-facade-xml>

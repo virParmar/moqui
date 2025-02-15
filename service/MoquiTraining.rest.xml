@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resource name="MoquiTrainingAPI" displayName="Moqui Training API"
-          description="API for managing Moqui Training" version="1.0"
-          require-authentication="false">
-
-    <method type="POST" path="/moqui-training/create">
-        <service service="training.create#MoquiTraining"/>
-    </method>
-
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/rest-api-3.xsd"
+          name="moquitraining"
+          displayName="Moqui Training API"
+          version="2.0.0"
+          require-authentication="anonymous-all">
+    <resource name="createtraining" require-authentication="anonymous-all">
+        <method type="post">
+            <service name="MoquiTrainingService.create#MoquiTrainingEntity"/>
+        </method>
+    </resource>
 </resource>

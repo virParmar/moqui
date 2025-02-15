@@ -4,8 +4,7 @@
 
     <service verb="create" noun="MoquiTrainingEntity"
              type="script"
-             location="component://moqui-training/script/MoquiTrainingService.groovy"
-             authenticate="false">
+             location="component://moqui-training/script/MoquiTrainingService.groovy">
 
         <in-parameters>
             <parameter name="trainingId" required="true"/>
